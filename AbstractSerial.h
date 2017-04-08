@@ -34,15 +34,15 @@
 
 class AbsSer : public Stream {
 public:
-	virtual void begin(unsigned long baud, uint8_t config);
-	virtual void begin(unsigned long baud);
-	virtual void end();
-	virtual int available(void);
+    virtual void begin(unsigned long baud, uint8_t config);
+    virtual void begin(unsigned long baud);
+    virtual void end();
+    virtual int available(void);
     virtual int peek(void);
     virtual int read(void);
     virtual int availableForWrite(void);
     virtual void flush(void);
-    virtual size_t write(uint8_t);
+    virtual size_t write(uint8_t n);
     virtual size_t write(unsigned long n);
     virtual size_t write(long n);
     virtual size_t write(unsigned int n);
