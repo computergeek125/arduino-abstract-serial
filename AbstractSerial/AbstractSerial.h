@@ -7,6 +7,9 @@
 #define AbstractSerial_H
 #define LIBRARY_VERSION_ABSSER_H   "0.1.0-alpha"
 
+#include <inttypes.h>
+#include "Stream.h"
+
 #if defined(ARDUINO) && ARDUINO >= 100
   #include "Arduino.h"
 #else
@@ -34,20 +37,20 @@
 
 class AbsSer : public Stream {
 public:
-    virtual void begin(unsigned long baud, uint8_t config);
-    virtual void begin(unsigned long baud);
-    virtual void end();
-    virtual int available(void);
-    virtual int peek(void);
-    virtual int read(void);
-    virtual int availableForWrite(void);
-    virtual void flush(void);
-    virtual size_t write(uint8_t n);
-    virtual size_t write(unsigned long n);
-    virtual size_t write(long n);
-    virtual size_t write(unsigned int n);
-    virtual size_t write(int n);
-    virtual size_t write(String s);
-    virtual size_t write(char* buf, size_t size);
-    virtual operator bool();
-}
+    virtual void begin(unsigned long baud, uint8_t config) =0;
+    virtual void begin(unsigned long baud) =0;
+    virtual void end() =0;
+    virtual int available(void) =0;
+    virtual int peek(void) =0;
+    virtual int read(void) =0;
+    virtual int availableForWrite(void) =0;
+    virtual void flush(void) =0;
+    using Print::write;
+    virtual size_t write(uint8_t n) =0;
+    virtual size_t write(unsigned long n) =0;
+    virtual size_t write(long n) =0;
+    virtual size_t write(unsigned int n) =0;
+    virtual size_t write(int n) =0;
+    virtual operator bool() =0;
+};
+#endif
