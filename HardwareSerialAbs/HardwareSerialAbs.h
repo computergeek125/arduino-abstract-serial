@@ -7,6 +7,10 @@
 #define HardwareSerialAbs_H
 #define LIBRARY_VERSION_HWSERABS_H   "0.1.0-alpha"
 
+#ifdef ARDUINO_ARCH_SAMD
+#warning "This library often does not compile properly on SAMD boards.  Consider using UartSerialAbs instead."
+#endif
+
 #include <inttypes.h>
 #include <AbstractSerial.h>
 
