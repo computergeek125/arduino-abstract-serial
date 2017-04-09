@@ -11,7 +11,7 @@ void loop() {
   doAThing(hwport);
 }
 
-void doAThing(HwSerAbs port) {
+void doAThing(AbsSer &port) {
     if (port.available() > 0) {
         port.write(port.read());
     }
